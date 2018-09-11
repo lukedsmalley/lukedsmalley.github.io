@@ -1,58 +1,105 @@
 
 body {
+  align-items: stretch;
+  background-color: rgb(44, 207, 131);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #fafafa;
-  color: #202020;
   font-family: 'Montserrat', sans-serif;
   margin: 0;
+  min-height: 100vh;
+  padding-right: 16px;
+}
+
+b {
+  font-weight: 400;
+}
+
+p {
+  font-size: 24px;
+  font-weight: 300;
+}
+
+li {
+  font-size: 24px;
+  font-weight: 300;
 }
 
 .heading {
+  color: rgb(40, 172, 110);
+  font-weight: 200;
+  font-size: 64px;
+  letter-spacing: 4px;
+  padding: 32px 4px;
+  text-orientation: mixed;
+  user-select: none;
+  writing-mode: vertical-lr;
+}
+
+.main {
+  align-items: stretch;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-grow: 1;
+  z-index: 999;
+}
+
+.intro {
+  background-color: #eee;
+  flex-grow: 1;
+  padding: 4px 128px 4px 64px;
+}
+
+.hotlink-bar {
+  background-color: #202020;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  padding: 16px 0;
 }
 
-.heading__title {
-  margin: 0;
-  font-size: 64px;
-  font-weight: 200;
-  letter-spacing: 4px;
-  border-bottom: 1px solid #202020;
-}
-
-.heading__title--bold {
-  font-weight: 400;
-}
-
-.heading__subtitle {
-  margin: 0;
-  padding: 8px 0;
-  font-size: 18px;
-  font-weight: 400;
-}
-
-.heading__links {
-  display: flex;
-  justify-content: center;
-  margin: 32px 0;
-}
-
-.heading__link {
-  margin: 16px;
-}
-
-.heading__link-image {
-  position: relative;
+.hotlink {
   height: 32px;
+  line-height: 0;
+  margin: 16px;
+  position: relative;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
   width: 32px;
-  transition: transform ease-in-out 0.2s;
 }
 
-.heading__link-image:hover {
-  transform: scale(1.25)
+.hotlink:hover {
+  transform: scale(1.2);
+}
+
+.hotlink__inactive-image, .hotlink__hover-image {
+  opacity: 1;
+  position: absolute;
+  transition: opacity 0.3s ease-in-out;
+  width: 100%;
+}
+
+.hotlink__inactive-image:hover { opacity: 0; }
+.hotlink__hover-image { opacity: 0; }
+.hotlink__hover-image:hover { opacity: 1; }
+
+@media (max-width: 640px) {
+  body {
+    flex-direction: column;
+    padding-right: 0;
+  }
+
+  .heading {
+    padding: 4px;
+    text-align: center;
+    text-orientation: initial;
+    writing-mode: initial;
+  }
+
+  .main {
+    flex-direction: column;
+  }
+
+  .hotlink-bar {
+    justify-content: center;
+    flex-direction: row;
+    padding: 4px;
+  }
 }
