@@ -1,26 +1,31 @@
 
 body {
-  align-items: stretch;
-  background-color: rgb(44, 207, 131);
-  display: flex;
+  background-color: #ddd;
   font-family: 'Montserrat', sans-serif;
   margin: 0;
-  min-height: 100vh;
-  padding-right: 16px;
 }
 
 b {
   font-weight: 400;
 }
 
-p {
+p, li {
   font-size: 24px;
   font-weight: 300;
 }
 
-li {
-  font-size: 24px;
-  font-weight: 300;
+.card {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.back-card {
+  align-items: stretch;
+  background-color: rgb(44, 207, 131);
+  display: flex;
+  margin-left: calc(50vw - 50vmin);
+  max-width: 100vmin;
+  min-height: 100vh;
 }
 
 .heading {
@@ -34,18 +39,17 @@ li {
   writing-mode: vertical-lr;
 }
 
-.main {
+.front-card {
   align-items: stretch;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-grow: 1;
-  z-index: 999;
+  margin-right: 16px;
 }
 
 .intro {
   background-color: #eee;
   flex-grow: 1;
-  padding: 4px 128px 4px 64px;
+  padding: 4px 64px;
 }
 
 .hotlink-bar {
@@ -81,7 +85,7 @@ li {
 .hotlink__hover-image:hover { opacity: 1; }
 
 @media (max-width: 640px) {
-  body {
+  .back-card {
     flex-direction: column;
     padding-right: 0;
   }
@@ -93,13 +97,14 @@ li {
     writing-mode: initial;
   }
 
-  .main {
+  .front-card {
     flex-direction: column;
+    margin: 0;
   }
 
   .hotlink-bar {
     justify-content: center;
     flex-direction: row;
-    padding: 4px;
+    padding: 0 16px;
   }
 }
