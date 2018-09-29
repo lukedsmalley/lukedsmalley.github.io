@@ -1,0 +1,88 @@
+
+.rule {
+  border-bottom: 1.5px dotted #ccc;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.intro-link {
+  text-decoration: none;
+  border-radius: 4px;
+  color: var(--theme-dark);
+  transition: all 0.3s ease-in-out;
+}
+
+.intro-link:hover {
+  color: #eee;
+  background: var(--theme-dark);
+}
+
+.events {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.event {
+  font-size: 20px;
+  font-weight: 300;
+  align-items: center;
+  /*background-color: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);*/
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  margin: 8px;
+}
+
+.event__image {
+  height: 32px;
+  margin-right: 8px;
+}
+
+.event__description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.event__semester {
+  font-size: 12px;
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.technology {
+  font-size: 24px;
+  font-weight: 300;
+  border-bottom: 2px solid;
+  margin: 8px;
+}
+
+.technology--expert {
+  border-bottom-color: var(--skill-expert); /*#0a0*/
+}
+
+.technology--familiar {
+  border-bottom-color: var(--skill-familiar); /*#7a0*/ 
+}
+
+.technology--aquainted {
+  border-bottom-color: var(--skill-aquainted); /*#bb0*/
+}
+
+.technology--exposed {
+  border-bottom-color: var(--skill-exposed); /*#b80*/
+}
+
+.contact {
+  background-color: #f5f5f5;
+  text-align: center;
+}

@@ -10,8 +10,9 @@ b {
 }
 
 p, li {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 300;
+  line-height: 1.75rem;
 }
 
 .card {
@@ -21,15 +22,22 @@ p, li {
 
 .back-card {
   align-items: stretch;
-  background-color: rgb(44, 207, 131);
+  background-color: var(--theme);
   display: flex;
-  margin-left: calc(50vw - 50vmin);
-  max-width: 100vmin;
+  margin-left: calc(50vw - 450px);
+  max-width: 900px;
   min-height: 100vh;
 }
 
+@media (max-width: 900px) {
+  .back-card {
+    margin-left: 0;
+    max-width: 100%;
+  }
+}
+
 .heading {
-  color: rgb(40, 172, 110);
+  color: var(--theme-dark);
   font-weight: 200;
   font-size: 64px;
   letter-spacing: 4px;
@@ -46,12 +54,6 @@ p, li {
   margin-right: 16px;
 }
 
-.intro {
-  background-color: #eee;
-  flex-grow: 1;
-  padding: 4px 64px;
-}
-
 .hotlink-bar {
   background-color: #202020;
   display: flex;
@@ -66,7 +68,7 @@ p, li {
   position: relative;
   transform: scale(1);
   transition: transform 0.3s ease-in-out;
-  width: 32px;
+  width: 32px; 
 }
 
 .hotlink:hover {
@@ -84,6 +86,15 @@ p, li {
 .hotlink__hover-image { opacity: 0; }
 .hotlink__hover-image:hover { opacity: 1; }
 
+.intro {
+  background-color: #eee;
+  flex-grow: 1;
+}
+
+.intro-section {
+  padding: 8px 64px;
+}
+
 @media (max-width: 640px) {
   .back-card {
     flex-direction: column;
@@ -91,7 +102,8 @@ p, li {
   }
 
   .heading {
-    padding: 4px;
+    font-size: 44px;
+    padding: 16px 4px 4px 4px;
     text-align: center;
     text-orientation: initial;
     writing-mode: initial;
@@ -100,6 +112,10 @@ p, li {
   .front-card {
     flex-direction: column;
     margin: 0;
+  }
+
+  .intro-section {
+    padding: 4px 32px;
   }
 
   .hotlink-bar {

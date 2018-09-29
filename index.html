@@ -6,42 +6,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400">
-    <link rel="stylesheet" href="./index.css"/>
+    <link rel="stylesheet" href="./layout.css"/>
+    <link rel="stylesheet" href="./intro.css"/>
   </head>
   <body>
+    <script>
+      function pickHue() {
+        let hue = Math.random() * 360;
+        if (hue < 10 || (hue > 60 && hue < 130) || (hue > 220 && hue < 270) || hue > 350) return pickHue();
+        else return hue;
+      }
+      let hue = pickHue();
+      document.querySelector('body').style.setProperty('--theme', 'hsl(' + hue + 'deg, 78%, 40%)');
+      document.querySelector('body').style.setProperty('--theme-dark', 'hsl(' + hue + 'deg, 76%, 34%)');
+      document.querySelector('body').style.setProperty('--skill-expert', 'hsl(' + (hue + 240) + 'deg, 78%, 40%)');
+      document.querySelector('body').style.setProperty('--skill-familiar', 'hsl(' + (hue + 220) + 'deg, 78%, 40%)');
+      document.querySelector('body').style.setProperty('--skill-aquainted', 'hsl(' + (hue + 200) + 'deg, 78%, 40%)');
+      document.querySelector('body').style.setProperty('--skill-exposed', 'hsl(' + (hue + 150) + 'deg, 78%, 40%)');
+    </script>
     <div class="card back-card">
       <span class="heading">luke <b>smalley</b></span>
       <div class="card front-card">
         <div class="hotlink-bar">
           <a class="hotlink" href="https://twitter.com/lukedsmalley">
-            <img class="hotlink__inactive-image" src="./logos/twitter-light.png"/>
-            <img class="hotlink__hover-image" src="./logos/twitter-color.png"/>
+            <img class="hotlink__inactive-image" src="./logos/social/twitter-light.png"/>
+            <img class="hotlink__hover-image" src="./logos/social/twitter-color.png"/>
           </a>
           <a class="hotlink" href="https://instagram.com/lukedsmalley">
-            <img class="hotlink__inactive-image" src="./logos/instagram-light.png"/>
-            <img class="hotlink__hover-image" src="./logos/instagram-color.png"/>
+            <img class="hotlink__inactive-image" src="./logos/social/instagram-light.png"/>
+            <img class="hotlink__hover-image" src="./logos/social/instagram-color.png"/>
           </a>
           <a class="hotlink" href="https://linkedin.com/in/lukedsmalley">
-            <img class="hotlink__inactive-image" src="./logos/linkedin-light.png"/>
-            <img class="hotlink__hover-image" src="./logos/linkedin-color.png"/>
+            <img class="hotlink__inactive-image" src="./logos/social/linkedin-light.png"/>
+            <img class="hotlink__hover-image" src="./logos/social/linkedin-color.png"/>
           </a>
           <a class="hotlink" href="https://github.com/lukedsmalley">
-            <img class="hotlink__inactive-image" src="./logos/github-light.png"/>
-            <img class="hotlink__hover-image" src="./logos/github-color.png"/>
+            <img class="hotlink__inactive-image" src="./logos/social/github-light.png"/>
+            <img class="hotlink__hover-image" src="./logos/social/github-color.png"/>
           </a>
         </div>
         <div class="intro">
-          <p>Hey! I'm Luke. I make software. 🖐</p>
-          <p>That's not simply a career choice. I could never <i>not</i> build things, but there weren't enough usable electrical components in my house. There <i>were</i> computers, though. Obvious result is obvious.</p>
-          <p>I'm currently studying Computer Science at Georgia State University and learning current development practices otherwise. I attempt to attend as many hackathon events as possible during the school year. I have currently attended:</p>
-          <ul>
-            <li>HackGSU Spring 2016</li>
-            <li>HackGT 4</li>
-            <li>HackGSU Fall 2017</li>
-            <li>UGA Hacks 3</li>
-            <li>HackGSU Spring 2017</li>
-            <li>HackFSU 5</li>
-          </ul>
+          <div class="intro-section bio">
+            <p>Hey! I'm Luke. 🖐</p>
+            <p>I'm building <a class="intro-link" href="https://ottodock.com">automated waterfront systems</a> and studying computer science at Georgia State University.</p>
+            <p>Previously, I instructed the Robotics and Programming merit badges at <a class="intro-link" href="https://www.campwoodruff.org">Woodruff Scout Reservation</a> during the summers of 2015-2018. As a high-school student, I participated in a summer internship program in software development at <a class="intro-link" href="https://www.getorderly.com">Orderly</a>.</p>
+            <p>I was a retail pharmacy associate for about two years. 💊</p>
+            <p>You can find me at almost all <a class="intro-link" href="https://mlh.io">Major League Hacking</a> events in and around Altanta. I really love these opportunities to spend a weekend meeting new people and building stuff. Over the past semesters I have been to:</p>
+            <div class="events">
+              <div class="event">
+                <img class="event__image" src="./logos/events/hackgsu-dark.png"/>
+                <div class="event__description">
+                  <span class="event__name">HackGSU</span>
+                  <span class="event__semester">Spring 2017</span>
+                </div>
+              </div>
+              <div class="event">
+                <img class="event__image" src="./logos/events/hackgt-dark.png"/>
+                <div class="event__description">
+                  <span class="event__name">HackGT 4</span>
+                  <span class="event__semester">Fall 2017</span>
+                </div>
+              </div>
+              <div class="event">
+                <img class="event__image" src="./logos/events/hackgsu-dark.png"/>
+                <div class="event__description">
+                  <span class="event__name">HackGSU</span>
+                  <span class="event__semester">Fall 2017</span>
+                </div>
+              </div>
+              <div class="event">
+                <img class="event__image" src="./logos/events/ugahacks-dark.png"/>
+                <div class="event__description">
+                  <span class="event__name">UGAHacks 3</span>
+                  <span class="event__semester">Spring 2018</span>
+                </div>
+              </div>
+              <div class="event">
+                <img class="event__image" src="./logos/events/hackgsu-dark.png"/>
+                <div class="event__description">
+                  <span class="event__name">HackGSU</span>
+                  <span class="event__semester">Spring 2018</span>
+                </div>
+              </div>
+              <div class="event">
+                <img class="event__image" src="./logos/events/hackfsu-dark.png"/>
+                <div class="event__description">
+                  <span class="event__name">HackFSU 5</span>
+                  <span class="event__semester">Spring 2018</span>
+                </div>
+              </div>
+            </div>
+            <p>I'm just tryin' to know my way around web development, front and back. Along the way I've ended up doing an awful lot of robotics. At the moment I'm working heavily with the Raspberry Pi, but I've tinkered with several hobby platforms.</p>
+            <p>My current software-related experience lies in:</p>
+            <div class="technologies">
+              <span class="technology technology--expert">Node.js</span>
+              <span class="technology technology--expert">JavaScript</span>
+              <span class="technology technology--expert">Java</span>
+              <span class="technology technology--familiar">Webpack</span>
+              <span class="technology technology--familiar">Python</span>
+              <span class="technology technology--aquainted">SCSS</span>
+              <span class="technology technology--aquainted">Vue.js</span>
+              <span class="technology technology--aquainted">SQL</span>
+              <span class="technology technology--aquainted">MongoDB</span>
+              <span class="technology technology--aquainted">AWS</span>
+              <span class="technology technology--aquainted">C#</span>
+              <span class="technology technology--aquainted">C</span>
+            </div>
+            <p>I'll be learning these in the near-future:</p>
+            <div class="technologies">
+              <span class="technology technology--exposed">React</span>
+              <span class="technology technology--exposed">Docker</span>
+              <span class="technology technology--exposed">Golang</span>
+            </div>
+          </div>
+          <div class="intro-section contact">
+            <p>Interested in friendly personal or professional conversation? Hit me up on Twitter or via email or voicemail:</p>
+            <p><a class="intro-link" href="https://twitter.com/lukedsmalley">@lukedsmalley</a> // lukedsmalley@gmail.com // 770-757-7949</p>
+          </div>
         </div>
       </div>
     </div>
