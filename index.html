@@ -13,16 +13,16 @@
     <script>
       function pickHue() {
         let hue = Math.random() * 360;
-        if (hue < 10 || (hue > 60 && hue < 130) || (hue > 220 && hue < 270) || hue > 350) return pickHue();
+        if (hue < 10 || (hue > 60 && hue < 130) || (hue > 220 && hue < 340) || hue > 350) return pickHue();
         else return hue;
       }
       let hue = pickHue();
       document.querySelector('body').style.setProperty('--theme', 'hsl(' + hue + 'deg, 78%, 40%)');
       document.querySelector('body').style.setProperty('--theme-dark', 'hsl(' + hue + 'deg, 76%, 34%)');
-      document.querySelector('body').style.setProperty('--skill-expert', 'hsl(' + (hue + 240) + 'deg, 78%, 40%)');
-      document.querySelector('body').style.setProperty('--skill-familiar', 'hsl(' + (hue + 220) + 'deg, 78%, 40%)');
-      document.querySelector('body').style.setProperty('--skill-aquainted', 'hsl(' + (hue + 200) + 'deg, 78%, 40%)');
-      document.querySelector('body').style.setProperty('--skill-exposed', 'hsl(' + (hue + 150) + 'deg, 78%, 40%)');
+      document.querySelector('body').style.setProperty('--skill-exposed', 'hsl(' + (hue + 240) + 'deg, 78%, 40%)');
+      document.querySelector('body').style.setProperty('--skill-aquainted', 'hsl(' + (hue + 220) + 'deg, 78%, 40%)');
+      document.querySelector('body').style.setProperty('--skill-familiar', 'hsl(' + (hue + 200) + 'deg, 78%, 40%)');
+      document.querySelector('body').style.setProperty('--skill-expert', 'hsl(' + (hue + 150) + 'deg, 78%, 40%)');
     </script>
     <div class="card back-card">
       <span class="heading">luke <b>smalley</b></span>
