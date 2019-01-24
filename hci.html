@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>human-computer interaction / smalley.sh</title>
+    <link href="https://unpkg.com/firacode/distr/fira_code.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="./reskin.css">
+    <link rel="stylesheet" href="./hci.css">
+  </head>
+  <body>
+    <div class="header">
+      <h1 class="header__title">luke <b>smalley</b></h1>
+      <h2 class="header__slogan"><b>curl</b> smalley.sh <b>| bash<br># don't actually, it's nyi</b></h2>
+    </div>
+    <div class="main">
+      <div class="nav-toggle">~ menu</div>
+      <div class="nav">
+        <a class="nav-item" href="./about.html">about</a>
+        <a class="nav-item nav-item--current" href="./hci.html">human-computer<br>interaction</a>
+      </div>
+      <div class="content">
+        <p>This semester I have enrolled in GSU's Human-Computer Interaction course (CSc 4720), instructed by Professor Carol Boles. This course covers analysis and development of user interfaces across many varieties of devices and creating documentation for software users. I've immersed myself in the technical domain of software development, but I haven't studied the principles and patterns for creating user interfaces. My hope is to learn through this class what to do and what not to do to create interfaces that are intuitive and logical for application users.</p>
+        <p>Over semester we will propose a problem to be solved or audience to research, then form student teams to develop a software solution to the problem. Project development will proceed with a focus on application usability. We will complete a proposal, mock-ups, and several demonstrations before completing the interactive prototype. We will also attend the computer science department's Demo Day at the end of the semester to present our final prototype.</p>
+        <p>The course requires that assignments be posted on this page as they are completed. As the semester continues, download links will be added for each item below prior to its due date.</p>
+        <div class="assignments">
+          <div class="assignment-row assignment-row--header">
+            <div class="assignment-column assignment-column--5">Assignment</div>
+            <div class="assignment-column assignment-column--1">Due</div>
+            <div class="assignment-column assignment-column--2">Link</div>
+          </div>
+          <div class="assignment-row assignment-row">
+            <div class="assignment-column assignment-column--5">Course Page</div>
+            <div class="assignment-column assignment-column--1">1/25</div>
+            <div class="assignment-column assignment-column--2"><a href="./about.html">smalley.sh/about.html</a></div>
+          </div>
+          <div class="assignment-row assignment-row">
+            <div class="assignment-column assignment-column--5">User &amp; Problem Space Research</div>
+            <div class="assignment-column assignment-column--1">2/1</div>
+            <div class="assignment-column assignment-column--2">--</div>
+          </div>
+          <div class="assignment-row assignment-row">
+            <div class="assignment-column assignment-column--5">Problem Demo</div>
+            <div class="assignment-column assignment-column--1">2/8</div>
+            <div class="assignment-column assignment-column--2">--</div>
+          </div>
+          <div class="assignment-row assignment-row">
+            <div class="assignment-column assignment-column--5">Interaction Design</div>
+            <div class="assignment-column assignment-column--1">2/22</div>
+            <div class="assignment-column assignment-column--2">--</div>
+          </div>
+          <div class="assignment-row assignment-row">
+            <div class="assignment-column assignment-column--5">UI Design</div>
+            <div class="assignment-column assignment-column--1">3/8</div>
+            <div class="assignment-column assignment-column--2">--</div>
+          </div>
+          <div class="assignment-row assignment-row">
+            <div class="assignment-column assignment-column--5">Technology+ Paper</div>
+            <div class="assignment-column assignment-column--1">3/29</div>
+            <div class="assignment-column assignment-column--2">--</div>
+          </div>
+          <div class="assignment-row assignment-row">
+            <div class="assignment-column assignment-column--5">Interactive Prototype</div>
+            <div class="assignment-column assignment-column--1">3/29</div>
+            <div class="assignment-column assignment-column--2">--</div>
+          </div>
+          <div class="assignment-row assignment-row">
+            <div class="assignment-column assignment-column--5">Usability Evaluation</div>
+            <div class="assignment-column assignment-column--1">4/12</div>
+            <div class="assignment-column assignment-column--2">--</div>
+          </div>
+          <div class="assignment-row assignment-row">
+            <div class="assignment-column assignment-column--5">Final Presentation</div>
+            <div class="assignment-column assignment-column--1">4/19</div>
+            <div class="assignment-column assignment-column--2">--</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.querySelector('.nav-toggle').addEventListener('click', function(e) {
+        let nav = document.querySelector('.nav')
+        if (nav.classList.contains('nav--open')) nav.classList.remove('nav--open')
+        else nav.classList.add('nav--open')
+      }, false)
+    </script>
+  </body>
+</html>

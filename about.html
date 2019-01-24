@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>about / smalley.sh</title>
+    <link href="https://unpkg.com/firacode/distr/fira_code.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="./reskin.css">
+    <link rel="stylesheet" href="./about.css">
+  </head>
+  <body>
+    <div class="header">
+      <h1 class="header__title">luke <b>smalley</b></h1>
+      <h2 class="header__slogan"><b>curl</b> smalley.sh <b>| bash<br># don't actually, it's nyi</b></h2>
+    </div>
+    <div class="main">
+      <div class="nav-toggle">~ menu</div>
+      <div class="nav">
+        <a class="nav-item nav-item--current" href="./about.html">about</a>
+        <a class="nav-item" href="./hci.html">human-computer<br>interaction</a>
+      </div>
+      <div class="content">
+        <p>Hey! I'm Luke.</p>
+        <p>I'm studying computer science in Georgia State University's undergraduate program and working on consumer-scale automation on the side. I want to be useful in as many areas of the web stack as possible, but I've been doing primarily back-end web work and projects with hobby/IoT controllers such as the Raspberry Pi and Arduino. A number of my recent projects or components of recent projects are available on <a href="https://github.com/lukedsmalley">GitHub</a>.</p>
+        <p>Presently I work with Node.js and Java, though I'm converting some personal projects to TypeScript. I've also worked in Python, C#, and (on an admittedly shallow level) C++. Language is less a barrier for me as much as my framework-specific experience, which I have yet to develop. I have done a limited amount of front-end web work with Vue.js/Webpack.</p>
+        <p>I love Major League Hacking events. Since sophomore year I've attended HackGT, UGAHacks, HackFSU, and several HackGSUs. This year, I'm looking to attend several more events as a part of a team sponsored by GSU's student organization PantherHackers.</p>
+        <p>I managed the Robotics and Programming merit badge at Woodruff Scout Reservation during the summers of 2015-2018. I was also a retail pharmacy associate for a couple years following the summer of 2015. Creating solutions to truly increase efficiency and reduce waste in the healthcare sector would be exciting.</p>
+        <p>I'd enjoy talking tech with you! Feel free to direct-message me on <a href="https://twitter.com/lukedsmalley">Twitter (@lukedsmalley)</a> or send me an email at <a href="mailto:lukedsmalley@gmail.com">lukedsmalley@gmail.com</a>. I can also be emailed through GSU at <a href="mailto:lsmalley1@student.gsu.edu">lsmalley1@student.gsu.edu</a>.</p>
+        <p>This page is also a redesign prototype for my current personal homepage, <a href="https://smalley.sh">smalley.sh</a>.</p>
+      </div>
+    </div>
+    <script>
+      document.querySelector('.nav-toggle').addEventListener('click', function(e) {
+        let nav = document.querySelector('.nav')
+        if (nav.classList.contains('nav--open')) nav.classList.remove('nav--open')
+        else nav.classList.add('nav--open')
+      }, false)
+    </script>
+  </body>
+</html>

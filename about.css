@@ -1,0 +1,20 @@
+
+.hackathons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.hackathon {
+  align-items: center;
+  display: flex;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  margin: 0 16px;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+.hackathon img {
+  height: 28px;
+  margin: 8px;
+}

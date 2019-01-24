@@ -1,0 +1,35 @@
+
+.assignments {
+  border-top: 1.5px solid #ccc;
+  border-left: 1.5px solid #ccc;
+  overflow: hidden;
+  text-align: center;
+  margin: 1em 0;
+}
+
+.assignment-row {
+  display: flex;
+  border-bottom: 1.5px solid #ccc;
+}
+
+.assignment-row--header {
+  background: #f8f8f8;
+  font-weight: 400;
+}
+
+.assignment-column {
+  border-right: 1.5px solid #ccc;
+  padding: 4px 0;
+}
+
+.assignment-column--5 {
+  flex-basis: 62.5%;
+}
+
+.assignment-column--2 {
+ flex-basis: 25%;
+}
+
+.assignment-column--1 {
+  flex-basis: 12.5%;
+}
