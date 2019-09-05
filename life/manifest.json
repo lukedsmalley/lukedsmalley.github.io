@@ -1,6 +1,6 @@
 {
-  "short_name": "Life",
-  "name": "Life",
+  "short_name": "Lucas",
+  "name": "Lucas",
   "display": "standalone",
   "icons": [
     {
@@ -14,8 +14,6 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
-  "background_color": "white",
-  "scope": "./",
+  "background_color": "#24292E",
   "theme_color": "#24292E"
 }
