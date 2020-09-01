@@ -1,137 +1,398 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
   <head>
     <title>Luke Smalley</title>
+    <meta charset="utf8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400">
-    <link rel="stylesheet" href="./layout.css"/>
-    <link rel="stylesheet" href="./intro.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet"/> 
+    <style>
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        margin: 0;
+        background-color: #f9f9f9;
+      }
+      .links {
+        position: fixed;
+        width: calc(100% - 16px);
+        display: flex;
+        justify-content: right;
+        padding: 8px;
+      }
+      .link {
+        padding: 8px;
+        color: #444;
+      }
+      .cover {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 80px);
+        color: #666;
+      }
+      .cover__image {
+        /* Need to engage in some relative sizing here (or everywhere) */
+        width: 88px;
+        height: 88px;
+        padding: 32px;
+      }
+      .cover__header {
+        font-family: Montserrat, sans-serif;
+        font-size: 108px;
+        font-weight: 200;
+        text-align: center;
+      }
+      .cover__subheader {
+        font-size: 32px;
+        font-weight: 200;
+        text-align: center;
+      }
+      @media (max-width: 768px) {
+        .cover__header {
+          font-size: 64px;
+        }
+        .cover__subheader {
+          font-size: 24px;
+        }
+      }
+      .projects-header {
+        padding: 16px 0 48px;
+        text-align: center;
+        font-size: 32px;
+        font-weight: 300;
+        background-color: #f9f9f9;
+        color: #aaa;
+      }
+      .projects-header__arrow {
+        height: 32px;
+        vertical-align: bottom;
+        margin-right: 16px;
+        margin-left: -32px;
+        opacity: 0;
+        transition-property: margin-left, opacity;
+        transition-duration: 0.3s;
+      }
+      .projects {
+        display: grid;
+        grid-template-columns: max-content auto;
+        padding: 0 calc((100% - 1000px) / 2) 96px;
+        /* I need a column on the right with width equal to column #1 */
+        margin-left: -48px;
+        background-color: #f9f9f9;
+      }
+      .year-label {
+        font-size: 24px;
+        font-weight: 300;
+        text-align: right;
+        border-right: 2px solid #ddd;
+        padding: 0 16px;
+        color: #aaa;
+        margin-right: 8px;
+      }
+      .year-projects {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .project {
+        margin: 0 0 24px 24px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        width: 384px;
+        height: 192px;
+        overflow: hidden;
+        color: #666;
+        display: flex;
+        flex-direction: column;
+      }
+      @media (max-width: 1144px) {
+        /* Serious misuse of exact px dimensions */
+        .projects {
+          padding: 0 calc((100% - 640px) / 2) 96px;
+        }
+        .project {
+          width: 480px;
+        }
+      }
+      @media (max-width: 768px) {
+        /* Serious misuse of exact px dimensions */
+        .projects {
+          padding: 0 calc((100% - 560px) / 2) 96px;
+        }
+        .project {
+          width: 384px;
+        }
+      }
+      .project__info {
+        padding: 16px 16px 8px;
+        background-color: #fff;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .project__links {
+        display: flex;
+        padding: 8px 16px 10px;
+        background-color: #eee;
+        font-size: 12px;
+        border-top: 1px solid #ddd;
+      }
+      .project-link {
+        margin-right: 12px;
+      }
+      .project-link:visited {
+        color: #666;
+      }
+      .project__name {
+        font-size: 16px;
+        font-weight: 600;
+        color: #444;
+      }
+      .project__subname {
+        font-size: 15px;
+        font-weight: 400;
+        color: #666;
+      }
+      .project__description {
+        padding: 8px 0;
+        font-size: 14px;
+        flex-grow: 1;
+      }
+      .project__event {
+        padding-top: 8px;
+        font-size: 12px;
+      }
+      .project-icon {
+        position: relative;
+        top: 1px;
+        width: 12px;
+        margin-right: 4px;
+      }
+      .project__technologies {
+        padding-top: 8px;
+        font-size: 12px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .project-tech {
+        margin-right: 10px;
+        margin-bottom: 8px;
+      }
+      .project-tech-color {
+        display: inline-block;
+        height: 12px;
+        border-radius: 50%;
+      }
+    </style>
   </head>
   <body>
-    <script>
-      function pickHue() {
-        let hue = Math.random() * 360;
-        if (hue < 10 || (hue > 60 && hue < 130) || (hue > 220 && hue < 340) || hue > 350) return pickHue();
-        else return hue;
-      }
-      let hue = pickHue();
-      document.querySelector('body').style.setProperty('--theme', 'hsl(' + hue + 'deg, 78%, 40%)');
-      document.querySelector('body').style.setProperty('--theme-dark', 'hsl(' + hue + 'deg, 76%, 34%)');
-      document.querySelector('body').style.setProperty('--skill-exposed', 'hsl(' + (hue + 240) + 'deg, 78%, 40%)');
-      document.querySelector('body').style.setProperty('--skill-aquainted', 'hsl(' + (hue + 220) + 'deg, 78%, 40%)');
-      document.querySelector('body').style.setProperty('--skill-familiar', 'hsl(' + (hue + 200) + 'deg, 78%, 40%)');
-      document.querySelector('body').style.setProperty('--skill-expert', 'hsl(' + (hue + 150) + 'deg, 78%, 40%)');
-    </script>
-    <div class="card back-card">
-      <span class="heading">luke <b>smalley</b></span>
-      <div class="card front-card">
-        <div class="hotlink-bar">
-          <a class="hotlink" href="https://twitter.com/lukedsmalley">
-            <img class="hotlink__inactive-image" src="./logos/social/twitter-light.png"/>
-            <img class="hotlink__hover-image" src="./logos/social/twitter-color.png"/>
-          </a>
-          <a class="hotlink" href="https://instagram.com/lukedsmalley">
-            <img class="hotlink__inactive-image" src="./logos/social/instagram-light.png"/>
-            <img class="hotlink__hover-image" src="./logos/social/instagram-color.png"/>
-          </a>
-          <a class="hotlink" href="https://linkedin.com/in/lukedsmalley">
-            <img class="hotlink__inactive-image" src="./logos/social/linkedin-light.png"/>
-            <img class="hotlink__hover-image" src="./logos/social/linkedin-color.png"/>
-          </a>
-          <a class="hotlink" href="https://github.com/lukedsmalley">
-            <img class="hotlink__inactive-image" src="./logos/social/github-light.png"/>
-            <img class="hotlink__hover-image" src="./logos/social/github-color.png"/>
-          </a>
-        </div>
-        <div class="intro">
-          <div class="intro-section bio">
-            <p>Hey! I'm Luke. 🖐</p>
-            <p>I'm studying computer science at Georgia State University and working with consumer-scale automation on the side.</p>
-            <p>Previously, I instructed the Robotics and Programming merit badges at <a class="intro-link" href="https://www.campwoodruff.org">Woodruff Scout Reservation</a> during the summers of 2015-2018. As a high-school student, I participated in a summer internship program in software development at <a class="intro-link" href="https://www.getorderly.com">Orderly</a>.</p>
-            <p>I was a retail pharmacy associate for about two years. 💊</p>
-            <p>During the 2017-2018 school year I attended a large number of <a class="intro-link" href="https://mlh.io">Major League Hacking</a> events in and around Altanta. Though my ability to reach these events has diminished a little, I really love the opportunities to spend a weekend meeting new people and building stuff. Over the past semesters I attended:</p>
-            <div class="events">
-              <div class="event">
-                <img class="event__image" src="./logos/events/hackgsu-dark.png"/>
-                <div class="event__description">
-                  <span class="event__name">HackGSU</span>
-                  <span class="event__semester">Spring 2017</span>
-                </div>
-              </div>
-              <div class="event">
-                <img class="event__image" src="./logos/events/hackgt-dark.png"/>
-                <div class="event__description">
-                  <span class="event__name">HackGT 4</span>
-                  <span class="event__semester">Fall 2017</span>
-                </div>
-              </div>
-              <div class="event">
-                <img class="event__image" src="./logos/events/hackgsu-dark.png"/>
-                <div class="event__description">
-                  <span class="event__name">HackGSU</span>
-                  <span class="event__semester">Fall 2017</span>
-                </div>
-              </div>
-              <div class="event">
-                <img class="event__image" src="./logos/events/ugahacks-dark.png"/>
-                <div class="event__description">
-                  <span class="event__name">UGAHacks 3</span>
-                  <span class="event__semester">Spring 2018</span>
-                </div>
-              </div>
-              <div class="event">
-                <img class="event__image" src="./logos/events/hackgsu-dark.png"/>
-                <div class="event__description">
-                  <span class="event__name">HackGSU</span>
-                  <span class="event__semester">Spring 2018</span>
-                </div>
-              </div>
-              <div class="event">
-                <img class="event__image" src="./logos/events/hackfsu-dark.png"/>
-                <div class="event__description">
-                  <span class="event__name">HackFSU 5</span>
-                  <span class="event__semester">Spring 2018</span>
-                </div>
-              </div>
-              <div class="event">
-                <img class="event__image" src="./logos/events/hackgsu-dark.png"/>
-                <div class="event__description">
-                  <span class="event__name">HackGSU</span>
-                  <span class="event__semester">Fall 2018</span>
-                </div>
-              </div>
+    <div class="links">
+      <a class="link" href="https://github.com/lukedsmalley">GitHub</a>
+      <a class="link" href="https://linkedin.com/in/lukedsmalley">LinkedIn</a>
+    </div>
+    <div class="cover">
+      <img class="cover__image" src="robot.png"/>
+      <div class="cover__header">Luke Smalley</div>
+      <div class="cover__subheader">Junior web and embedded systems engineer</div>
+    </div>
+    <div class="projects-header"><img class="projects-header__arrow" src="./down-arrow.png" alt="Arrow pointing downward"/>Past & Present Projects</div>
+    <div class="projects">
+      <div class="year-label">Present</div>
+      <div class="year-projects">
+        <!--<div>-->
+          <div class="project">
+            <div class="project__info">
+              <div class="project__name">Ottodock <span class="project__subname">(Team Member)</span></div>
+              <div class="project__description">An automated dock management solution; control your dock from anywhere in the world, or let Ottodock maintain the position of your dock autonomously. The Beta customer program is now available for residents and businesses on Atlanta's Lake Sidney Lanier!</div>
             </div>
-            <p>I'm just tryin' to know my way around web development, front and back. Along the way I've ended up doing an awful lot of robotics. At the moment I'm working heavily with the Raspberry Pi, but I've tinkered with several hobby platforms.</p>
-            <p>My current software-related experience lies in:</p>
-            <div class="technologies">
-              <span class="technology technology--expert">Node.js</span>
-              <span class="technology technology--expert">JavaScript</span>
-              <span class="technology technology--expert">Java</span>
-              <span class="technology technology--familiar">Webpack</span>
-              <span class="technology technology--familiar">Python</span>
-              <span class="technology technology--aquainted">SCSS</span>
-              <span class="technology technology--aquainted">Vue.js</span>
-              <span class="technology technology--aquainted">SQL</span>
-              <span class="technology technology--aquainted">MongoDB</span>
-              <span class="technology technology--aquainted">AWS</span>
-              <span class="technology technology--aquainted">C#</span>
-              <span class="technology technology--aquainted">C</span>
-            </div>
-            <p>I'll be learning these in the near-future:</p>
-            <div class="technologies">
-              <span class="technology technology--exposed">React</span>
-              <span class="technology technology--exposed">Docker</span>
-              <span class="technology technology--exposed">Golang</span>
+            <div class="project__links">
+              <a class="project-link" href="http://ottodock.com">Website</a>
             </div>
           </div>
-          <div class="intro-section contact">
-            <p>Interested in friendly personal or professional conversation? Hit me up on Twitter or via email or voicemail:</p>
-            <p><a class="intro-link" href="https://twitter.com/lukedsmalley">@lukedsmalley</a> // lukedsmalley@gmail.com // 770-757-7949</p>
+        <!--</div>-->
+      </div>
+      <div class="year-label">2020</div>
+      <div class="year-projects">
+        <!--<div>-->
+          <div class="project">
+            <div class="project__info">
+              <div class="project__name">Trashket Robot <span class="project__subname">(Team Member)</span></div>
+              <div class="project__description">Trash-catching mobile wastebasket</div>
+              <div class="project__event"><img class="project-icon" src="school.png" alt="Graduation cap"/>Term project for Embedded Systems</div>
+              <div class="project__technologies">
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #666;"></span>Hardware</span>
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #ffd343;"></span>Python</span>
+              </div>
+            </div>
+            <div class="project__links">
+              <a class="project-link" href="https://github.com/lukedsmalley/trashket-robot">GitHub</a>
+            </div>
+          </div>
+        <!--</div>-->
+        <!--<div>-->
+          <div class="project">
+            <div class="project__info">
+              <div class="project__name">Object-Oriented Kernel Hacking</div>
+              <div class="project__description">Reimplementation of Linux kernel internals using C# with a homebrew .NET-based runtime</div>
+              <div class="project__event"><img class="project-icon" src="school.png" alt="Graduation cap"/>Term project for Operating Systems</div>
+              <div class="project__technologies">
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #000;"></span>C</span>
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #ffd343;"></span>Python</span>
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #89e051;"></span>Bash</span>
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: rgb(51, 23, 153);"></span>C#</span>
+              </div>
+            </div>
+            <div class="project__links">
+              <a class="project-link" href="https://github.com/lukedsmalley/oo-kernel-hacking">GitHub</a>
+            </div>
+          </div>
+        <!--</div>-->
+      </div>
+      <div class="year-label">2019</div>
+      <div class="year-projects">
+        <div>
+          <div class="project">
+            <div class="project__info">
+              <div class="project__name">Food Donation App <span class="project__subname">(Team Member)</span></div>
+              <div class="project__description">Online map of locations that have surplus food available for pickup free-of-charge by people in need</div>
+              <div class="project__event"><img class="project-icon" src="team.png" alt="Team of people"/>Submission for HackFSU 6</div>
+              <div class="project__technologies">
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #f16529;"></span>HTML/CSS/JS</span>
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #00b8d8;"></span>React</span>
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #43853d;"></span>Node.js</span>
+              </div>
+            </div>
+            <div class="project__links">
+              <a class="project-link" href="https://github.com/lukedsmalley/food-donation-app">GitHub</a>
+              <a class="project-link" href="https://devpost.com/software/fdw-food-donation-website">Devpost</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="project">
+            <div class="project__info">
+              <div class="project__name">Knox</div>
+              <div class="project__description">A tool for exploring, visualizing, or otherwise aquainting oneself with a source code directory tree</div>
+              <div class="project__event"><img class="project-icon" src="team.png" alt="Team of people"/>Submission for VolHacks IV</div>
+              <div class="project__technologies">
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #f16529;"></span>HTML/CSS</span>
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #3178c6;"></span>TypeScript</span>
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #00b8d8;"></span>React</span>
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #43853d;"></span>Node.js</span>
+              </div>
+            </div>
+            <div class="project__links">
+              <a class="project-link" href="https://github.com/lukedsmalley/knox">GitHub</a>
+              <a class="project-link" href="https://devpost.com/software/knox">Devpost</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="project">
+            <div class="project__info">
+              <div class="project__name">TravelCon <span class="project__subname">(Team Member)</span></div>
+              <div class="project__description">TravelCon is an IoT system that uses facial recognition to make reservation-booking processes painless and secure</div>
+              <div class="project__event"><img class="project-icon" src="team.png" alt="Team of people"/>Submission for UGAHacks 4</div>
+              <div class="project__technologies">
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #f16529;"></span>HTML/CSS/JS</span>
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #43853d;"></span>Node.js</span>
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #c51d4a;"></span>Raspberry Pi</span>
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #7f74dc;"></span>Kotlin</span>
+              </div>
+            </div>
+            <div class="project__links">
+              <a class="project-link" href="https://github.com/lukedsmalley/travelcon-web">GitHub (Web App)</a>
+              <a class="project-link" href="https://github.com/lukedsmalley/travelcon-pi">GitHub (Pi)</a>
+              <a class="project-link" href="https://devpost.com/software/travelcon">Devpost</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="project">
+            <div class="project__info">
+              <div class="project__name">LockAR <span class="project__subname">(Team Member)</span></div>
+              <div class="project__description">ARCore-based Android app as a proof-of-concept for security systems with purely virtual interfaces</div>
+              <div class="project__event"><img class="project-icon" src="team.png" alt="Team of people"/>Submission for CrimsonHacks 2019</div>
+              <div class="project__technologies">
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #00de7a;"></span>Android</span>
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #b41515;"></span>Java</span>
+              </div>
+            </div>
+            <div class="project__links">
+              <a class="project-link" href="https://devpost.com/software/lockar">Devpost</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="year-label">2018</div>
+      <div class="year-projects">
+        <div>
+          <div class="project">
+            <div class="project__info">
+              <div class="project__name">LifeBeat <span class="project__subname">(Team Member)</span></div>
+              <div class="project__description">Impact tracker to guage risk of concussive injury for athletes</div>
+              <div class="project__event"><img class="project-icon" src="team.png" alt="Team of people"/>Submission for HackFSU 5</div>
+              <div class="project__technologies">
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #f16529;"></span>HTML/CSS/JS</span>
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #43853d;"></span>Node.js</span>
+              </div>
+            </div>
+            <div class="project__links">
+              <a class="project-link" href="https://github.com/lukedsmalley/lifebeat-web">GitHub</a>
+              <a class="project-link" href="https://devpost.com/software/lifebeat-ulz9aw">Devpost</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="year-label">2017</div>
+      <div class="year-projects">
+        <div>
+          <div class="project">
+            <div class="project__info">
+              <div class="project__name">HiredBy.me <span class="project__subname">(Team Member)</span></div>
+              <div class="project__description">AI-powered chatbot to interact with visitors to a job listing website a find the best role for job applicants</div>
+              <div class="project__event"><img class="project-icon" src="team.png" alt="Team of people"/>Submission for HackFSU 5</div>
+              <div class="project__technologies">
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #f16529;"></span>HTML/CSS/JS</span>
+                <span class="project-tech"><span class="project-icon project-tech-color" style="background-color: #43853d;"></span>Node.js</span>
+              </div>
+            </div>
+            <div class="project__links">
+              <a class="project-link" href="https://github.com/pvenigandla/hirebot">GitHub (Web App)</a>
+              <a class="project-link" href="https://github.com/JayDosunmu/hackgtbot">GitHub (Chatbot)</a>
+              <a class="project-link" href="https://devpost.com/software/hiredby-me">Devpost</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <script>
+      const projectsHeaderArrowElement = document.querySelector('.projects-header__arrow')
+
+      function updateProjectsHeaderArrow() {
+        if (window.scrollY === 0) {
+          projectsHeaderArrowElement.style.opacity = 1
+          projectsHeaderArrowElement.style['margin-left'] = 0
+        } else {
+          projectsHeaderArrowElement.style.opacity = 0
+          projectsHeaderArrowElement.style['margin-left'] = '-32px'
+        }
+      }
+
+      let scrollTimeout = null
+      window.addEventListener('scroll', e => {
+        if (scrollTimeout) {
+          clearTimeout(scrollTimeout)
+        } else {
+          updateProjectsHeaderArrow()
+        }
+        scrollTimeout = setTimeout(() => {
+          scrollTimeout = null
+          updateProjectsHeaderArrow()
+        }, 100)
+      })
+
+      updateProjectsHeaderArrow()
+    </script>
   </body>
 </html>
